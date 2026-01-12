@@ -27,9 +27,11 @@ apiRouter.post("/createUser",
   openaiController.generateAstroData, 
   dataController.parseRawData,
   dataController.validateAstroData,
-  // userController.updateUser,
+  userController.updateUser,
 
   (req, res) => {
+
+  console.log(`endpoint updatedUser: `, res.locals.updatedUser);  
   return res.status(200).json({
     message: "created User profile",
     user: {
@@ -38,9 +40,9 @@ apiRouter.post("/createUser",
       birthdate: res.locals.birthdate,
       birthtime: res.locals.birthtime,
       birthplace: res.locals.birthplace,
-      // zodiac_sign: res.locals.zodiac_sign,
-      // age: res.locals.age,
-      // best_locations: res.locals.best_locations
+      zodiac_sign: res.locals.zodiac_sign,
+      age: res.locals.age,
+      best_locations: res.locals.best_locations
     },
     openAiRaw: res.locals.rawOpenAIResp,
     astroData: res.locals.astroData
@@ -49,34 +51,4 @@ apiRouter.post("/createUser",
 
 
 
-// apiRouter.get(
-//   "/",
-//   openaiController.getAllAnime,
-//   (_req, res) => {
-//     return res.status(200).json({ getAnime: res.locals.getAnime });
-//   }
-// );
-
-// // http://localhost:3000/api/genre
-// apiRouter.get(
-//   "/genre",
-//   openaiController.getByGenre,
-//   (req, res) => {
-//     return res.status(200).json({ animeGenre: res.locals.animeGenre });
-//   }
-// );
-
-// // http://localhost:3000/api/genre
-// apiRouter.post(
-//   "/genre", sessionController.isLoggedIn,
-//   userController.addToFavorites,
-//   (req, res) => {
-//     return res.status(200).json( {
-//       message: 'anime added to user favs',
-//       favorites: res.locals.userFavs
-//     });
-//   }
-// );
-
-// EXPORT THE ROUTER
 export default apiRouter;

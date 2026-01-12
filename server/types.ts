@@ -15,10 +15,10 @@ export interface ServerError {
 
 
 export interface UserController {
-  getAllUsers: RequestHandler;
+  // getAllUsers: RequestHandler;
   createUser: RequestHandler;
-  verifyUser: RequestHandler;
   updateUser: RequestHandler;
+  // verifyUser: RequestHandler;
 }
 
 export interface DataController {
@@ -26,11 +26,11 @@ export interface DataController {
   validateAstroData: RequestHandler;
 }
 
-export interface CookieController {
-  setSSIDCookie: RequestHandler;
-}
+// export interface CookieController {
+//   setSSIDCookie: RequestHandler;
+// }
 
-export interface SessionController {
-  isLoggedIn: RequestHandler;
-  startSession: RequestHandler;
-}
+// export interface SessionController {
+//   isLoggedIn: RequestHandler;
+//   startSession: RequestHandler;
+// }
