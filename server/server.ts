@@ -31,7 +31,7 @@ const mongoURI : any = process.env.MONGO_URI;
 // mongoose.connect(mongoURI);
 mongoose.connect(mongoURI, {
   // sets the name of the DB that our collections are part of
-  dbName: 'astroUsers'
+  dbName: 'astro'
 })
   .then(() => console.log('Connected to Mongo DB.')) // check to verify connected to DB in .then clause
   .catch(err => console.log(err));
@@ -58,7 +58,7 @@ app.use("/api", apiRouter);
 //http://localhost:3000/api
 // inside of api.ts file, "/" is same as "http://localhost:3000/api"
 
-app.use("/oauth", oauthRouter);
+// app.use("/oauth", oauthRouter);
 // inside of oauth.ts file, "/" is same as "http://localhost:3000/oauth"
 
 

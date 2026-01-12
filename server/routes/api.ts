@@ -19,7 +19,8 @@ const apiRouter = express.Router(); // creates a mini Express app for routing
 // 3. possibly parse / validate astro data
 // 4. updateUserWithAstroData (update with zodiac/locations)
 
-apiRouter.post("/saveUserData", userController.createUser, (req, res) => {
+// http://localhost:3000/api/createUser
+apiRouter.post("/createUser", userController.createUser, (req, res) => {
   return res.status(200).json({
     message: "created User",
     user: {

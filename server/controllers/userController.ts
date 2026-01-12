@@ -36,6 +36,15 @@ const userController: UserController = {
       });
     }
 
+  // convert any date format to Date object
+  const parseBirthdate = (dateStr: string): Date => {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) {
+      throw new Error('Invalid date format');
+    }
+    return date;
+  };
+
     try {
       // OPTION 1: using create() method
       // Mongoose middleware under the hood will automatically run .pre method (see userModel.ts) before saving. No need to create new instance, then save as 2 separate steps
