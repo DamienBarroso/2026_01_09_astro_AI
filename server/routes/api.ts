@@ -31,23 +31,29 @@ apiRouter.post("/createUser",
 
   (req, res) => {
 
-  console.log(`endpoint updatedUser: `, res.locals.updatedUser);  
-  return res.status(200).json({
-    message: "created User profile",
-    user: {
-      id: res.locals.userId,
-      username: res.locals.username,
-      birthdate: res.locals.birthdate,
-      birthtime: res.locals.birthtime,
-      birthplace: res.locals.birthplace,
-      zodiac_sign: res.locals.zodiac_sign,
-      age: res.locals.age,
-      best_locations: res.locals.best_locations
-    },
-    openAiRaw: res.locals.rawOpenAIResp,
-    astroData: res.locals.astroData
-  });
+  console.log(`endpoint updatedUser: `, res.locals.updatedUser); 
+  
+  // create separate resp obj just for console logging
+      const responseObject = {
+      message: "created User profile",
+      user: {
+        id: res.locals.userId,
+        username: res.locals.username,
+        birthdate: res.locals.birthdate,
+        birthtime: res.locals.birthtime,
+        birthplace: res.locals.birthplace,
+        zodiac_sign: res.locals.zodiac_sign,
+        age: res.locals.age,
+        best_locations: res.locals.best_locations
+      }
+    };
+
+    console.log('responseObj being sent to frontend: ', responseObject)
+// console.log(JSON.stringify(responseObject, null, 2)); // Pretty print
+
+  return res.status(200).json(responseObject);
 });
+
 
 
 

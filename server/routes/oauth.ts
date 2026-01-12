@@ -53,6 +53,16 @@
 //   }
 // );
 
+// to get specific userData, we'll need oauth
+// http://localhost:3000/oauth/updatedUser
+// apiRouter.get(
+//   "/updatedUser", sessionController.isLoggedIn, userController.updatedUser,
+//   (req, res) => {
+//     console.log('OauthRouter GET updatedUser ', res.locals.updatedUser)
+//     return res.status(200).json({updatedUser: res.locals.updatedUser});
+//   }
+// );
+
 
 // // http://localhost:3000/oauth/favorites
 // oauthRouter.get(
