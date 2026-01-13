@@ -7,7 +7,7 @@ import { jsx } from "react/jsx-runtime";
 
 function App() {
     return(
-<App>
+<div>
     <name>
      Enter your name: <input name="myName"/>
     </name>
@@ -26,7 +26,7 @@ function App() {
     <birthplace>
      Enter your birth place:<input name="birthPlace"/>
     </birthplace>
-</App>
+</div>
     )
 }
   
