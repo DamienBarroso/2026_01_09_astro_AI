@@ -1,7 +1,9 @@
 import path from "path";
 import express, { Request, Response, NextFunction } from "express";
 import apiRouter from "./routes/api";
-import oauthRouter from "./routes/oauth";
+import cors from 'cors';
+
+// import oauthRouter from "./routes/oauth.ts";
 
 import { ServerError } from "./types";
 
@@ -9,7 +11,6 @@ import { ServerError } from "./types";
 import 'dotenv/config';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
-
 
 
 // dotenv.config(); // process.env
@@ -20,6 +21,12 @@ const PORT = 3000;
 // make sure to initialize express
 // This calls the imported express() function, creating a new Express application object and storing it in the app variable. This app object is what you use to define routes, middleware, and start the server.
 const app = express();
+
+app.use(cors( {
+  origin: 'http://localhost:5173',
+  credentials: true,
+}
+)); // allow only this origin for development
 
 // create a .env file at root (top-level), not nested inside any folder
 // set up mongoDB under your organization, create a project, and under project,deploy a cluster (default name: Cluster 0)
